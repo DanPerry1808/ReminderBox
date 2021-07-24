@@ -1,0 +1,20 @@
+<%= erb :header %>
+<form method="post">
+<label for="title">Title</label>
+<input name="title">
+<br/>
+<label for="desc">Description</label>
+<input type="textarea">
+<br/>
+<label for="date">Date</label>
+<input type="date" name="date">
+<br/>
+<h5>Time</h5>
+<label for="morning">Morning</label>
+<input type="radio" name="time" value="AM">
+<label for="evening">Evening</label>
+<input type="radio" name="time" value="PM">
+<br/>
+<input type="submit" value="Add Reminder">
+</form>
+<%= erb :footer %>
