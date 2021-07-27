@@ -1,0 +1,10 @@
+<%= erb :header %>
+<h1>All Reminders</h1>
+<ul>
+<% @rems.each do |rem|%>
+<li>
+<%= rem.title %>
+</li>
+<% end %>
+</ul>
+<%= erb :footer %>
