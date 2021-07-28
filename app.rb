@@ -1,5 +1,6 @@
 require "sinatra"
 require "require_all"
+require "date"
 
 require_rel "db", "models"
 
@@ -34,4 +35,14 @@ end
 
 # View for displaying current reminders
 get '/now' do
+    redirect "/date/#{Date.today}"
+end
+
+get '/date/:date' do
+    @date_obj = Date.parse(params[:date])
+    @today = Date.today
+    @am_rems = Reminder.where(date: @date_obj, time: "AM")
+    @pm_rems = Reminder.where(date: @date_obj, time: "PM")
+
+    erb :list
 end

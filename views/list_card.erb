@@ -1,0 +1,15 @@
+<div class="card">
+<div class="card-header">
+<%= title %>
+</div>
+<ul class="list-group list-group-flush">
+<% if rems.empty? %>
+<li class="list-group-item">No Reminders</li>
+<% else %>
+<% rems.each do |rem|%>
+<%= erb :reminder, :locals => {rem: rem} %>
+<br/>
+<% end %>
+<% end %>
+</ul>
+</div>
