@@ -1,14 +1,4 @@
 <%= erb :header %>
 <h1>All Reminders</h1>
-<div class="card">
-<div class="card-header">
-All Tasks
-</div>
-<ul class="list-group list-group-flush">
-<% @rems.each do |rem|%>
-<%= erb :reminder, :locals => {rem: rem} %>
-<br/>
-<% end %>
-</ul>
-</div>
+<%= erb :list_card, locals: {title: 'All Reminders', rems: @rems} %>
 <%= erb :footer %>
