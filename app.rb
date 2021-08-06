@@ -81,7 +81,7 @@ get '/cron/:time' do
     notif_address = "http://#{this_ip}:4567/now"
 
     # Get the URL for the IFTTT notification
-    uri = URI.parse("https://maker.ifttt.com/trigger/RemBoxNotif/with/key/#{ENV["IFTTTKEY"]}")
+    uri = URI.parse("https://maker.ifttt.com/trigger/#{ENV["IFTTTEVENT"]}/with/key/#{ENV["IFTTTKEY"]}")
     # Must use HTTPS to make requests to IFTTT
     https = Net::HTTP.new(uri.host, uri.port)
     https.use_ssl = true
