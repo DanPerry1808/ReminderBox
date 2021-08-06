@@ -11,6 +11,9 @@ ReminderBox is a web application used to track reminders and send notifications.
 - Cache page to view tasks when offline
 - Adding tasks offline and syncing them when online
 
+## Known Issues
+The Gemfile might be outdated, as my Pi Zero can't install the `thin` gem for some reason, so I may have neglected the Gemfile.
+
 ## Installation Guide
 To use ReminderBox, I reccommend a Raspberry Pi Zero, or similar device running Linux. In my case I have Raspberry Pi OS Lite. The easiest way to interact with the Pi Zero is to install your operating system and then enable key-authenticated SSH to allow you to use the Pi on a different device.
 
