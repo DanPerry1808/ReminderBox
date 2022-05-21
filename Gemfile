@@ -1,7 +1,7 @@
-source "https://rubygems.org" do
-    gem "require_all"
-    gem "sinatra"
-    gem "thin"
-    gem "sqlite3"
-    gem "sequel"
-  end
+source "https://rubygems.org"
+
+gem "require_all"
+gem "sinatra", ">= 2.2.0"
+gem "thin"
+gem "sqlite3"
+gem "sequel"

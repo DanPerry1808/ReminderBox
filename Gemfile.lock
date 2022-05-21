@@ -1,20 +1,20 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    daemons (1.4.0)
+    daemons (1.4.1)
     eventmachine (1.2.7)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     rack (2.2.3)
-    rack-protection (2.1.0)
+    rack-protection (2.2.0)
       rack
     require_all (3.0.0)
     ruby2_keywords (0.0.5)
-    sequel (5.46.0)
-    sinatra (2.1.0)
+    sequel (5.56.0)
+    sinatra (2.2.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
-      rack-protection (= 2.1.0)
+      rack-protection (= 2.2.0)
       tilt (~> 2.0)
     sqlite3 (1.4.2)
     thin (1.8.1)
@@ -24,14 +24,14 @@ GEM
     tilt (2.0.10)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
-  require_all!
-  sequel!
-  sinatra!
-  sqlite3!
-  thin!
+  require_all
+  sequel
+  sinatra (>= 2.2.0)
+  sqlite3
+  thin
 
 BUNDLED WITH
-   2.1.4
+   2.3.7
