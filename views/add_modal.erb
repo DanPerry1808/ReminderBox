@@ -1,14 +1,40 @@
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addModalLabel">Add new task</h5>
+        <h5 class="modal-title" id="addModalLabel">Add task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Form goes here
+        <form id="addForm">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="title-addon">Title</span>
+            <input type="text" name="title" class="form-control" aria-label="Title" aria-describedby="title-addon">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" id="description" name="desc" aria-label="Description"></textarea>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="date-addon">Date</span>
+            <input type="date" name="date" class="form-control" aria-label="Date" aria-describedby="date-addon">
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="time" id="timeAM" value="AM">
+            <label class="form-check-label" for="timeAM">
+                Morning
+            </label>
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="time" id="timePM" value="PM">
+            <label class="form-check-label" for="timePM">
+                Evening
+            </label>
+        </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" onclick="addTask()">Add task</button>
       </div>
     </div>
@@ -16,11 +42,21 @@
 </div>
 
 <script>
-function openModal() {
-    $("#addModal").modal("show");
-}
-
 function addTask() {
-    $('#addModal').modal("hide");
+    const formData = $("#addForm").serialize();
+    console.log(formData);
+    $.ajax({
+        type: "POST",
+        url: "/add",
+        data: $("#addForm").serialize(),
+        success: () => {
+            console.log("It worked");
+            const addModal = bootstrap.Modal.getInstance(document.getElementById("addModal"));
+            addModal.hide();
+        },
+        error: (err) => {
+            console.error(err);
+        }
+    });
 }
 </script>
