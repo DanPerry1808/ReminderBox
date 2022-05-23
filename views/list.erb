@@ -1,8 +1,8 @@
 <%= erb :header %>
 <% if @today == @date_obj %>
-<h1>Current Reminders</h1>
+<h2>Current Reminders</h2>
 <% else %>
-<h1>Reminders for <%= @date_obj %></h1>
+<h2>Reminders for <%= @date_obj %></h2>
 <% end %>
 
 <%= erb :list_card, locals: {title: 'Morning', rems: @am_rems} %>

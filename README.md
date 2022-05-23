@@ -2,24 +2,25 @@
 ReminderBox is a web application used to track reminders and send notifications. It needs to be self-hosted, I'm using a Raspberry Pi Zero W for this. When used in conjunction with IFTTT it can be used to send notifications to your phone to show your reminders at a set time every day. ReminderBox is still in quite early development, so it may seem a little rough at the moment. Also, please remember that you're self-hosting your own data on your own device, so good security is essential. Always use ReminderBox on your own password-protected local network.
 
 ## Todo
-- Make the add form AJAX
-- Make the description field in the add form a textarea, not an input
-- Add an application manifest
+- Client-side validation on add form
+- Display description as Bootstrap accordion
+- Links to go forward + backward days
+- AJAX-ify getting a list of tasks
+- Navbar element for selecting a certain date
+- Recurring tasks
+- Customisable notification times
 
 ## Future Features(?)
 - Able to mark tasks as complete
 - Cache page to view tasks when offline
 - Adding tasks offline and syncing them when online
 
-## Known Issues
-The Gemfile might be outdated, as my Pi Zero can't install the `thin` gem for some reason, so I may have neglected the Gemfile.
-
 ## Installation Guide
-To use ReminderBox, I reccommend a Raspberry Pi Zero, or similar device running Linux. In my case I have Raspberry Pi OS Lite. The easiest way to interact with the Pi Zero is to install your operating system and then enable key-authenticated SSH to allow you to use the Pi on a different device.
+To use ReminderBox, I recommend a Raspberry Pi Zero, or similar device running Linux. In my case I have Raspberry Pi OS Lite. The easiest way to interact with the Pi Zero is to install your operating system and then enable key-authenticated SSH to allow you to use the Pi on a different device.
 
-Once your device is set up, install Git and clone this repository. You will then need to install Ruby and Sqlite3.
+Once your device is set up, install Git and clone this repository. You will then need to install Ruby 3 and Sqlite3.
 
-You'll also need to know the local IP address of the device you're using to run ReminderBox. On Linux you can do this by typing `ifconfig` in the terminal. You're looking for an IP address that follows the pattern `192.168.X.X`.
+You'll also need to know the local IP address of the device you're using to run ReminderBox. On Linux you can do this by typing `ifconfig` in the terminal. You're looking for an IP address that follows the pattern `192.168.X.X`. Having a static IP address is useful for this.
 
 After installing dependencies, you should be able to start the server by doing:
 `cd ReminderBox/`

@@ -20,13 +20,6 @@
         "description": "View today's current reminders",
         "url": "/now",
         "icons": [{ "src": "./rb_logo_144.png", "sizes": "144x144" }]
-      },
-      {
-        "name": "Add new reminder",
-        "short_name": "Add",
-        "description": "Adds a new reminder for the future",
-        "url": "/add",
-        "icons": [{ "src": "./rb_logo_144.png", "sizes": "144x144" }]
       }
     ],
     "description": "App for reminders and stuff"
