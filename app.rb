@@ -13,11 +13,6 @@ get '/' do
     erb :index
 end
 
-# Displays form for adding new reminders
-get '/add' do
-    erb :add
-end
-
 # Handles form for adding new reminders
 post '/add' do
     @rem = Reminder.new
