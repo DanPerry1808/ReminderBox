@@ -17,7 +17,7 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="date-addon">Date</span>
-            <input type="date" name="date" class="form-control" aria-label="Date" aria-describedby="date-addon">
+            <input type="date" name="date" id="date-input" class="form-control" aria-label="Date" aria-describedby="date-addon">
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="time" id="timeAM" value="AM">
@@ -43,16 +43,14 @@
 
 <script>
 function addTask() {
-    const formData = $("#addForm").serialize();
-    console.log(formData);
     $.ajax({
         type: "POST",
         url: "/add",
         data: $("#addForm").serialize(),
         success: () => {
-            console.log("It worked");
             const addModal = bootstrap.Modal.getInstance(document.getElementById("addModal"));
             addModal.hide();
+            $("#addForm")[0].reset();
         },
         error: (err) => {
             console.error(err);
