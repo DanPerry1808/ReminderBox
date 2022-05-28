@@ -9,11 +9,11 @@
         <form id="addForm">
         <div class="input-group mb-3">
             <span class="input-group-text" id="title-addon">Title</span>
-            <input type="text" name="title" class="form-control" aria-label="Title" aria-describedby="title-addon">
+            <input type="text" name="title" id="title-input" class="form-control" aria-label="Title" aria-describedby="title-addon">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">Description</span>
-            <textarea class="form-control" id="description" name="desc" aria-label="Description"></textarea>
+            <textarea class="form-control" id="description-input" name="desc" aria-label="Description"></textarea>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="date-addon">Date</span>
@@ -43,9 +43,11 @@
 
 <script>
 function addTask() {
+  let formData = new FormData();
+  formData.append("title", $())
     $.ajax({
-        type: "POST",
-        url: "/add",
+        method: "POST",
+        url: "/add/",
         data: $("#addForm").serialize(),
         success: () => {
             const addModal = bootstrap.Modal.getInstance(document.getElementById("addModal"));

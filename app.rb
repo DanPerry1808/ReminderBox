@@ -14,7 +14,7 @@ get '/' do
 end
 
 # Handles form for adding new reminders
-post '/add' do
+post '/add/' do
     @rem = Reminder.new
     @rem.load(params)
 
