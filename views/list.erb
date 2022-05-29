@@ -5,6 +5,8 @@
 <h2>Reminders for <%= @date_obj %></h2>
 <% end %>
 
+<%= erb :day_buttons, locals: {date_obj: @date_obj} %>
+
 <%= erb :list_card, locals: {title: 'Morning', rems: @am_rems} %>
 
 <br/>
