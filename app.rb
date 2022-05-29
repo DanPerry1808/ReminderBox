@@ -1,4 +1,5 @@
 require "sinatra"
+require "sinatra/reloader" if development?
 require "require_all"
 require "date"
 require "net/https"
@@ -20,10 +21,13 @@ post '/add/' do
 
     if @rem.valid?
         @rem.save_changes
-        redirect '/add'
+        status 200
+        body ''
+        return
     end
 
-    erb :add
+    status 400
+    body ''
 end
 
 # View for displaying all current reminders

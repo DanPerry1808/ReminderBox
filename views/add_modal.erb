@@ -46,6 +46,7 @@ function addTask() {
   let formData = new FormData();
   formData.append("title", $())
     $.ajax({
+        type: "POST",
         method: "POST",
         url: "/add/",
         data: $("#addForm").serialize(),
