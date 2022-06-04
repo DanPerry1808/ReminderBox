@@ -3,8 +3,6 @@ ReminderBox is a web application used to track reminders and send notifications.
 
 ## Todo
 - Client-side validation on add form
-- Display description as Bootstrap accordion
-- Links to go forward + backward days
 - AJAX-ify getting a list of tasks
 - Navbar element for selecting a certain date
 - Recurring tasks
