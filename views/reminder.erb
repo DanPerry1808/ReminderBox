@@ -1,3 +1,6 @@
 <li class="list-group-item">
-<%= "#{rem.date} #{rem.time} - #{rem.title}" %>
+<h6><%= "#{rem.date} #{rem.time} - #{rem.title}" %></h6>
+<% unless rem.desc.nil? %>
+<p><%= rem.desc %></p>
+<% end %>
 </li>
