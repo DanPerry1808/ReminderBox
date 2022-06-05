@@ -9,7 +9,7 @@
         <form id="addForm">
         <div class="input-group mb-3">
             <span class="input-group-text" id="title-addon">Title</span>
-            <input type="text" name="title" id="title-input" class="form-control" aria-label="Title" aria-describedby="title-addon">
+            <input type="text" required name="title" id="title-input" class="form-control" aria-label="Title" aria-describedby="title-addon">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">Description</span>
@@ -17,16 +17,16 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="date-addon">Date</span>
-            <input type="date" name="date" id="date-input" class="form-control" aria-label="Date" aria-describedby="date-addon">
+            <input type="date" required name="date" id="date-input" class="form-control" aria-label="Date" aria-describedby="date-addon">
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="time" id="timeAM" value="AM">
+            <input required class="form-check-input" type="radio" name="time" id="timeAM" value="AM">
             <label class="form-check-label" for="timeAM">
                 Morning
             </label>
             </div>
             <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="time" id="timePM" value="PM">
+            <input required class="form-check-input" type="radio" name="time" id="timePM" value="PM">
             <label class="form-check-label" for="timePM">
                 Evening
             </label>
@@ -41,23 +41,38 @@
   </div>
 </div>
 
+<style>
+input:invalid.form-sent {
+  border: 1px #FF8888 solid;
+}
+</style>
+
 <script>
+
 function addTask() {
-  let formData = new FormData();
-  formData.append("title", $())
-    $.ajax({
-        type: "POST",
-        method: "POST",
-        url: "/add/",
-        data: $("#addForm").serialize(),
-        success: () => {
-            const addModal = bootstrap.Modal.getInstance(document.getElementById("addModal"));
-            addModal.hide();
-            $("#addForm")[0].reset();
-        },
-        error: (err) => {
-            console.error(err);
-        }
-    });
+  const inputElems = $("input");
+  for (const el of inputElems) {
+    el.classList.add("form-sent");
+  }
+
+  const formElem = $("#addForm")[0];
+  if (!formElem.checkValidity()) {
+    return;
+  }
+  const formData = new FormData(formElem);
+  $.ajax({
+      type: "POST",
+      method: "POST",
+      url: "/add/",
+      data: $("#addForm").serialize(),
+      success: () => {
+          const addModal = bootstrap.Modal.getInstance(document.getElementById("addModal"));
+          addModal.hide();
+          $("#addForm")[0].reset();
+      },
+      error: (err) => {
+          console.error(err);
+      }
+  });
 }
 </script>

@@ -2,7 +2,6 @@
 ReminderBox is a web application used to track reminders and send notifications. It needs to be self-hosted, I'm using a Raspberry Pi Zero W for this. When used in conjunction with IFTTT it can be used to send notifications to your phone to show your reminders at a set time every day. ReminderBox is still in quite early development, so it may seem a little rough at the moment. Also, please remember that you're self-hosting your own data on your own device, so good security is essential. Always use ReminderBox on your own password-protected local network.
 
 ## Todo
-- Client-side validation on add form
 - AJAX-ify getting a list of tasks
 - Navbar element for selecting a certain date
 - Recurring tasks
